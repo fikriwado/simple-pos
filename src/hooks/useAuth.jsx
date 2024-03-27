@@ -13,7 +13,10 @@ const useAuth = () => {
     setIsLoggedIn(true)
   }
 
-  return { isLoggedIn, login }
+  const getTokenType = localStorage.getItem('token_type')
+  const getAccessToken = localStorage.getItem('access_token')
+
+  return { isLoggedIn, login, getTokenType, getAccessToken }
 }
 
 export default useAuth
