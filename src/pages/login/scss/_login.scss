@@ -1,0 +1,55 @@
+@import '../../../scss/tokens';
+
+.tech-auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+
+  &__logo {
+    max-width: 250px;
+  }
+  &__form {
+    margin-top: 40px;
+
+    & > :not(:last-child) {
+      margin-bottom: 20px;
+    }
+    &--group {
+      text-align: center;
+    }
+    &--label {
+      display: block;
+      margin-bottom: 10px;
+      color: $tech-color-gray-med;
+    }
+    &--input,
+    &--submit {
+      width: 200px;
+      height: 30px;
+      outline: none;
+      border: none;
+      box-shadow: 1px 4px 5px 0 rgba(164, 175, 179, 0.493);
+      border-radius: 4px;
+      padding: 10px;
+    }
+    &--submit {
+      width: 120px;
+      background-color: $tech-color-white-default;
+      font-weight: 600;
+      padding: 0;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 15px;
+
+      &:hover {
+        background-color: $tech-color-light-med;
+      }
+    }
+  }
+
+  .error-message {
+    margin-top: 40px;
+  }
+}
