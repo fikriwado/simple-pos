@@ -2,12 +2,12 @@
 @import './tokens';
 
 .App {
+  background-color: $tech-color-light-med;
+  min-height: 100dvh;
   @include tablet {
     position: relative;
     max-width: 450px;
-    min-height: 100dvh;
     margin: 0 auto;
-    background-color: $tech-color-light-med;
     overflow: hidden;
   }
 }

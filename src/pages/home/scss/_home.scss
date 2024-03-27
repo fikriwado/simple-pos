@@ -1,0 +1,59 @@
+@import '../../../scss/tokens';
+
+.tech-saldo {
+  background-image: url('../../../assets/bg-decoration.png');
+  background-size: 100%;
+  background-position: center;
+  padding: 20px;
+
+  &__card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    &--greeting,
+    &--name {
+      margin-bottom: 10px;
+    }
+    &--name {
+      font-weight: 700;
+    }
+  }
+
+  &__detail {
+    display: flex;
+    margin-top: 20px;
+
+    &--left {
+      width: 80px;
+      border-right: 1px solid $tech-color-gray-low;
+
+      .tech-saldo__left--qrcode {
+        padding: 10px;
+        border-radius: 100px;
+        box-shadow: 0 2px 5px 0 rgba(110, 120, 124, 0.5);
+        width: 60px;
+      }
+    }
+    &--right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      flex: 1;
+      padding: 5px 0 5px 20px;
+
+      .tech-saldo__right--value {
+        display: flex;
+        justify-content: space-between;
+        & > :last-child {
+          font-weight: 600;
+        }
+
+        &:last-child {
+          & > :last-child {
+            color: #09cead;
+          }
+        }
+      }
+    }
+  }
+}
