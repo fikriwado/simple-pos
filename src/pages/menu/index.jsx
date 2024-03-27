@@ -43,9 +43,7 @@ const Menu = () => {
               </div>
               <div className='tech-products__item--content'>
                 <div className='tech-products__item--title'>{menu.title}</div>
-                <div className='tech-products__item--desc'>
-                  Lorem ipsum dolor sit amet consectetur adipis asd asd icing elit. Nobis quod cumque corrupti earum molestias excepturi?
-                </div>
+                <div className='tech-products__item--desc'>Lorem ipsum dolor sit amet consectetur adipis icing.</div>
               </div>
               <div className='tech-products__item--price'>{menu.price}</div>
             </div>
