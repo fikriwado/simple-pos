@@ -9,8 +9,10 @@ import useAuth from '../../hooks/useAuth'
 const Login = () => {
   const navigate = useNavigate()
   const { isLoggedIn, login } = useAuth()
-  const [email, setEmail] = useState('support@technopartner.id')
-  const [password, setPassword] = useState('1234567')
+  // const [email, setEmail] = useState('support@technopartner.id')
+  // const [password, setPassword] = useState('1234567')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [error, setError] = useState(null)
 
   useEffect(() => {
