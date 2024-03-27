@@ -1,6 +1,6 @@
 import { Layout } from '../../layouts'
 
-const Login = () => {
+const Menu = () => {
   return (
     <Layout>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, laudantium aut. Nesciunt dolor reprehenderit, delectus voluptate perspiciatis
@@ -8,4 +8,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Menu

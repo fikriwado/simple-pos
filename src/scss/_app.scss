@@ -1,8 +1,13 @@
 @import './responsive-mixin-helper';
+@import './tokens';
 
 .App {
   @include tablet {
+    position: relative;
     max-width: 450px;
+    min-height: 100dvh;
     margin: 0 auto;
+    background-color: $tech-color-light-med;
+    overflow: hidden;
   }
 }

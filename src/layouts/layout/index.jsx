@@ -1,13 +1,12 @@
-import './scss/_layout.scss'
 import App from '../../App'
-import { Header, Footer } from '../../components'
+import { Header, Menus } from '../../components'
 
 const Layout = ({ children }) => {
   return (
     <App>
       <Header />
       <div className='content'>{children}</div>
-      <Footer />
+      <Menus />
     </App>
   )
 }

@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import './responsive-mixin-helper';
+@import './tokens';
 @import './reset';
 
 :root {
@@ -13,5 +15,14 @@
 }
 
 * {
+  max-width: 100%;
+  box-sizing: border-box;
   scroll-behavior: smooth;
+}
+
+body {
+  @include tablet {
+    background-color: #f4f5f6;
+    color: $tech-color-dark-high;
+  }
 }

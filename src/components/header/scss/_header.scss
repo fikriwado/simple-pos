@@ -1,0 +1,10 @@
+@import '../../../scss/tokens';
+
+.tech-header {
+  padding: 0 10px;
+  background-color: $tech-color-white-default;
+
+  &__logo {
+    height: 60px;
+  }
+}

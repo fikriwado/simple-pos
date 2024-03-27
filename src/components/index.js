@@ -1,4 +1,4 @@
 import Header from './header'
-import Footer from './footer'
+import Menus from './menus'
 
-export { Header, Footer }
+export { Header, Menus }

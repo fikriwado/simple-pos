@@ -1,0 +1,56 @@
+@import '../../../scss/responsive-mixin-helper';
+@import '../../../scss/tokens';
+
+.tech-menus-wrapper {
+  position: absolute;
+  top: calc(100dvh - 70px);
+  height: 70px;
+  width: 100%;
+  overflow: hidden;
+}
+.tech-menus {
+  position: fixed;
+  height: inherit;
+  width: inherit;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  & > :not(:last-child) {
+    margin-right: 10px;
+  }
+
+  @include tablet {
+    max-width: 450px;
+  }
+
+  &__item {
+    height: 100%;
+
+    &--link {
+      --menus-link-color: #{$tech-color-gray-med};
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100px;
+      height: inherit;
+      text-decoration: none;
+      color: var(--menus-link-color);
+      & > :not(:last-child) {
+        margin-bottom: 4px;
+      }
+
+      &.active {
+        --menus-link-color: #{$tech-color-dark-high};
+      }
+    }
+    &--img {
+      width: 28px;
+    }
+    &--label {
+      font-size: 14px;
+    }
+  }
+}
