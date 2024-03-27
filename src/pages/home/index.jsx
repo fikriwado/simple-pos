@@ -1,13 +1,15 @@
 import './scss/_home.scss'
+import { useState } from 'react'
 import { Layout } from '../../layouts'
 import { qrcode } from '../../assets'
-import { useState } from 'react'
+import { Header } from '../../components'
 
 const Home = () => {
   const [toggleQrCode, setToggleQrCode] = useState(false)
 
   return (
     <Layout>
+      <Header />
       <section className='tech-saldo'>
         <div className='tech-saldo__card'>
           <div className='tech-saldo__card--greeting'>Good Afternoon,</div>
