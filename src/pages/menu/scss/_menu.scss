@@ -1,0 +1,39 @@
+@import '../../../scss/tokens';
+
+.tech-products {
+  &__category {
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  &__item {
+    display: flex;
+    padding: 10px;
+    background-color: $tech-color-white-default;
+
+    &--img,
+    &--price {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+    }
+    &--img img {
+      height: 80px;
+    }
+    &--content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    &--title {
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    &--desc {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}
