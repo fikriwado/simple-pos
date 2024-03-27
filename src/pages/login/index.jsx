@@ -1,15 +1,23 @@
 import './scss/_login.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { AuthLayout } from '../../layouts'
 import { logo } from '../../assets'
+import useAuth from '../../hooks/useAuth'
 
 const Login = () => {
   const navigate = useNavigate()
+  const { isLoggedIn, login } = useAuth()
   const [email, setEmail] = useState('support@technopartner.id')
   const [password, setPassword] = useState('1234567')
   const [error, setError] = useState(null)
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/')
+    }
+  }, [isLoggedIn, navigate])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -23,8 +31,7 @@ const Login = () => {
       })
 
       const data = response.data
-      localStorage.setItem('token_type', data.token_type)
-      localStorage.setItem('access_token', data.access_token)
+      login(data.token_type, data.access_token)
       setError(null)
 
       navigate('/')
