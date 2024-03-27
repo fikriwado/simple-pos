@@ -59,6 +59,19 @@
   }
 }
 
+.tech-banner {
+  background-color: $tech-color-white-default;
+
+  .tech-banner__nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 10px;
+    .view-all {
+      color: #09cead;
+    }
+  }
+}
+
 .tech-qrcode {
   position: absolute;
   top: 0;

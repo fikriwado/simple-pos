@@ -1,55 +1,65 @@
 import './scss/_menu.scss'
+import { useEffect, useState } from 'react'
 import { Layout } from '../../layouts'
 import { HeaderText } from '../../components'
-import { coffee } from '../../assets'
+import { useNavigate } from 'react-router-dom'
+import useAuth from '../../hooks/useAuth'
+import axios from 'axios'
 
 const Menu = () => {
-  const menus = [
-    {
-      category: 'Best Seller',
-      menus: [
-        { title: 'Latte Fredo', price: '39.000' },
-        { title: 'Vanilla Latte', price: '45.000' },
-        { title: 'Green Tea Latte', price: '47.000' }
-      ]
-    },
-    {
-      category: 'Coffee',
-      menus: [
-        { title: 'Latte Fredo', price: '39.000' },
-        { title: 'Vanilla Latte', price: '45.000' },
-        { title: 'Green Tea Latte', price: '47.000' }
-      ]
-    },
-    {
-      category: 'Others',
-      menus: [
-        { title: 'Latte Fredo', price: '39.000' },
-        { title: 'Vanilla Latte', price: '45.000' },
-        { title: 'Green Tea Latte', price: '47.000' }
-      ]
+  const navigate = useNavigate()
+  const { isLoggedIn, getTokenType, getAccessToken } = useAuth()
+  const [dataMenu, setDataMenu] = useState(null)
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/login')
     }
-  ]
+  }, [isLoggedIn, navigate])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.post(
+          'https://soal.staging.id/api/menu',
+          {},
+          {
+            headers: {
+              Authorization: `${getTokenType} ${getAccessToken}`
+            }
+          }
+        )
+        setDataMenu(data.result)
+        console.log(data.result)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
+    fetchData().then((r) => r)
+  }, [getTokenType, getAccessToken])
+
   return (
     <Layout>
       <HeaderText text='MENU' />
-      {menus.map((item) => (
-        <section className='tech-products' key={item.category}>
-          <p className='tech-products__category'>{item.category}</p>
-          {item.menus.map((menu) => (
-            <div className='tech-products__item' key={menu.title}>
-              <div className='tech-products__item--img'>
-                <img src={coffee} alt='' />
-              </div>
-              <div className='tech-products__item--content'>
-                <div className='tech-products__item--title'>{menu.title}</div>
-                <div className='tech-products__item--desc'>Lorem ipsum dolor sit amet consectetur adipis icing.</div>
-              </div>
-              <div className='tech-products__item--price'>{menu.price}</div>
-            </div>
-          ))}
-        </section>
-      ))}
+      {dataMenu
+        ? dataMenu.categories.map((item) => (
+            <section className='tech-products' key={item.category_name}>
+              <p className='tech-products__category'>{item.category_name}</p>
+              {item.menu.map((menu) => (
+                <div className='tech-products__item' key={menu.name}>
+                  <div className='tech-products__item--img'>
+                    <img src={menu.photo} alt='' />
+                  </div>
+                  <div className='tech-products__item--content'>
+                    <div className='tech-products__item--title'>{menu.name}</div>
+                    <div className='tech-products__item--desc'>Lorem ipsum dolor sit amet consectetur adipis icing.</div>
+                  </div>
+                  <div className='tech-products__item--price'>{menu.price}</div>
+                </div>
+              ))}
+            </section>
+          ))
+        : 'Loading'}
     </Layout>
   )
 }
